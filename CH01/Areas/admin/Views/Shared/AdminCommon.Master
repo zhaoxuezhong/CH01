@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta name="Robots" content="noindex,nofollow" />
+<title>
+    <asp:ContentPlaceHolder ID="AdminTitle" runat="server" />
+</title>
+    <link href="<%=Url.Content("~/Areas/admin/CSS/admin.css") %>" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header"><img src="<%=Url.Content("~/Areas/admin/images/admin_top.gif") %>" alt="" /></div>
+
+<div id="main">
+	<div id="opt_list">
+    	<h1>管理员，您好！</h1>
+    	<ul>
+        	<li><a href="#">订单管理</a></li>
+            <li><a href="#">用户管理</a></li>
+            <li><a href="#">角色管理</a></li>
+            <li><a href="<%=Url.Content("~/admin/category/category") %>">图书分类管理</a></li>
+            <li><a href="#">图书管理</a></li>
+            <li><a href="#">销售统计</a></li>
+            <li><a href="#">安全退出</a></li>
+        </ul>
+    </div>
+    <div id="opt_area">
+    	<asp:ContentPlaceHolder ID="AdminContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+var $=function(id){ return document.getElementById(id);}
+
+function reinitIframe(){
+	var iframe = $("frame_content");
+	try{
+		var bHeight = iframe.contentWindow.document.body.scrollHeight;
+		var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+		var height = Math.max(bHeight, dHeight);
+		iframe.height =  height;
+	}catch (err){/* alert(err.description);*/}
+}
+
+window.setInterval("reinitIframe()", 200);
+</script>
+
+</body>
+</html>

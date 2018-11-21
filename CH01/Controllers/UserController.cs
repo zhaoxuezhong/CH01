@@ -148,7 +148,7 @@ namespace CH01.Controllers
                     int y = random.Next(bitmap.Height);
                     bitmap.SetPixel(x, y, Color.FromArgb(random.Next()));
                 }
-
+                
                 //边框
                 g.DrawRectangle(new Pen(Color.Silver), 0, 0, bitmap.Width - 1, bitmap.Height - 1);
                 MemoryStream stream = new MemoryStream();
